@@ -1,0 +1,27 @@
+class sjf:
+  def __init__(self,n,bt,l):
+    self.n=n
+    self.bt=bt
+    self.l=l
+  def result(self):
+    wt=[]
+    tat=[]
+    for i in range(self.n):
+      for j in range(i+1,self.n):
+          if(self.bt[i]>self.bt[j]):
+              self.bt[i],self.bt[j]=self.bt[j],self.bt[i]
+              self.l[i],self.l[j]=self.l[j],self.l[i]
+      wt.append(0)
+ for i in range(len(self.bt)):
+  if(len(self.bt)!=len(wt)):
+    wt.append(sum(self.bt[0:(i+1)]))
+    tat.append(sum(self.bt[0:(i+1)]))
+ print('average waiting time:',sum(wt)/len(wt))
+ print('average turn around time:',sum(tat)/len(tat))
+bt=[]
+l=[]
+bt=[int(x) for x in input().split()]
+for i in range(len(bt)):
+  l.append(i)
+s=sjf(len(l),bt,l)
+s.result()
